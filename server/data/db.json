@@ -1,0 +1,338 @@
+{
+  "settings": {
+    "announcementBadge": "OFFER",
+    "announcementText": "📦 Pakistan Post Delivery Nationwide | FREE Shipping over PKR 2,000",
+    "helpline": "+92 3241453947",
+    "whatsapp": "03241453947",
+    "email": "kitabcart85@gmail.com",
+    "easypaisaNumber": "03443418044",
+    "easypaisaTitle": "Ibn E Abbas (EasyPaisa Wallet)"
+  },
+  "users": [
+    {
+      "user_id": "usr_001",
+      "name": "Muhammad Ali",
+      "email": "kitabcart85@gmail.com",
+      "phone": "+92 3241453947",
+      "shipping_address": "House 42, Street 5, F-7/2",
+      "city": "Islamabad",
+      "postal_code": "44000",
+      "role": "customer"
+    },
+    {
+      "user_id": "usr_admin",
+      "name": "Library Kutub Manager",
+      "email": "kitabcart85@gmail.com",
+      "phone": "+92 3241453947",
+      "shipping_address": "Main Commercial Market",
+      "city": "Lahore",
+      "postal_code": "54000",
+      "role": "admin"
+    }
+  ],
+  "books": [
+    {
+      "book_id": "bk_001",
+      "title": "Seerat-un-Nabi (Biography of Prophet Muhammad PBUH - 7 Volumes)",
+      "author": "Allama Shibli Nomani & Syed Sulaiman Nadvi",
+      "publisher": "Dar-us-Salam Publications",
+      "genre": "Seerat-un-Nabi & Sahaba",
+      "price": 3850,
+      "cost_price": 2400,
+      "stock_quantity": 20,
+      "isbn": "978-9694260102",
+      "cover_image_url": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80",
+      "condition": "New",
+      "language": "English & Arabic",
+      "binding": "Hardcover Deluxe Set",
+      "pages": 1420,
+      "rating": 5,
+      "featured": true,
+      "bestseller": true,
+      "description": "The quintessential, masterfully written biography of Prophet Muhammad (PBUH) in comprehensive prose by Allama Shibli Nomani and completed by Syed Sulaiman Nadvi. Essential for every Muslim household.",
+      "sample_pages": [
+        "Seerat-un-Nabi (PBUH) - Chapter 1: Arabia Before Islam\n\nThe Arabian Peninsula was famous for its vast deserts and tribal lineage. Prior to the birth of Prophet Muhammad (PBUH), the region was submerged in ignorance and tribal warfare.",
+        "Chapter 2: The Blessed Birth & Childhood\n\nThe Year of the Elephant marked a milestone in Arabian history. In this blessed year in Makkah, the beacon of guidance was born, illuminating the entire world with truth."
+      ]
+    },
+    {
+      "book_id": "bk_002",
+      "title": "Tafseer Ibn Kathir (Quranic Commentary - 5 Volumes)",
+      "author": "Imam Hafiz Ibn Kathir",
+      "publisher": "Darussalam Pakistan",
+      "genre": "Tafseer & Quran",
+      "price": 5400,
+      "cost_price": 3600,
+      "stock_quantity": 15,
+      "isbn": "978-9695810055",
+      "cover_image_url": "/assets/islamic_history_book_1788429558297.png",
+      "condition": "New",
+      "language": "English",
+      "binding": "Hardcover 5-Volume Set",
+      "pages": 2450,
+      "rating": 4.95,
+      "featured": true,
+      "bestseller": true,
+      "description": "One of the most authentic and comprehensive explanations of the Holy Quran based on Quranic verses, Sahih Ahadith, and sayings of the Sahaba.",
+      "sample_pages": [
+        "Tafseer Ibn Kathir - Surah Al-Fatiha Exegesis\n\nIn the Name of Allah, the Most Gracious, the Most Merciful: All praise is due to Allah, the Sustainer of all the worlds, the Most Compassionate, Master of the Day of Judgment.",
+        "Exegesis of Alif-Lam-Meem: These are disjointed letters whose true hidden knowledge rests with Allah Almighty."
+      ]
+    },
+    {
+      "book_id": "bk_003",
+      "title": "Sahih al-Bukhari (Authentic Hadith Collection - 3 Volumes)",
+      "author": "Imam Muhammad bin Ismail al-Bukhari",
+      "publisher": "Maktaba Quddusia",
+      "genre": "Hadith & Sunnah",
+      "price": 4200,
+      "cost_price": 2800,
+      "stock_quantity": 12,
+      "isbn": "978-9694160890",
+      "cover_image_url": "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=800&q=80",
+      "condition": "New",
+      "language": "English & Arabic",
+      "binding": "Hardcover Deluxe",
+      "pages": 1890,
+      "rating": 5,
+      "featured": true,
+      "bestseller": true,
+      "description": "The most authentic book of Hadith in Islam after the Holy Quran. Contains complete Arabic text with fluent English translation and explanatory footnotes.",
+      "sample_pages": [
+        "Book of Revelation - Hadith 1\n\nNarrated Umar bin Al-Khattab (R.A): I heard the Messenger of Allah (PBUH) saying: 'The reward of deeds depends upon the intentions and every person will get the reward according to what he has intended.'"
+      ]
+    },
+    {
+      "book_id": "bk_004",
+      "title": "Ar-Raheeq Al-Makhtum (The Sealed Nectar)",
+      "author": "Safiur Rahman Mubarakpuri",
+      "publisher": "Darussalam Lahore",
+      "genre": "Seerat-un-Nabi & Sahaba",
+      "price": 1650,
+      "cost_price": 1050,
+      "stock_quantity": 25,
+      "isbn": "978-9694260221",
+      "cover_image_url": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80",
+      "condition": "New",
+      "language": "English",
+      "binding": "Hardcover",
+      "pages": 580,
+      "rating": 4.95,
+      "featured": true,
+      "bestseller": true,
+      "description": "Award-winning biography of Prophet Muhammad (PBUH) which won First Prize in the Rabitat al-Alam al-Islami international Seerat competition in Makkah.",
+      "sample_pages": [
+        "The Sealed Nectar - Preface\n\nThe biography of the Prophet (PBUH) is a boundless ocean whose every drop serves as life-giving water for humanity. This book chronicles the radiant journey from the valleys of Makkah to the luminous city of Madinah."
+      ]
+    },
+    {
+      "book_id": "bk_005",
+      "title": "Tareekh Ibn Kathir (Al-Bidayah wan-Nihayah - 16 Volumes)",
+      "author": "Imam Hafiz Ibn Kathir",
+      "publisher": "Nafaes Publications",
+      "genre": "Islamic History",
+      "price": 12500,
+      "cost_price": 8500,
+      "stock_quantity": 6,
+      "isbn": "978-9693500888",
+      "cover_image_url": "/assets/islamic_history_book_1788429558297.png",
+      "condition": "New",
+      "language": "English",
+      "binding": "Hardcover Boxed Set",
+      "pages": 6400,
+      "rating": 4.9,
+      "featured": true,
+      "bestseller": true,
+      "description": "The landmark chronicle of world history from creation, Prophets, Khilafat-e-Rashida, Umayyad & Abbasid Dynasties to the events of Judgment Day.",
+      "sample_pages": [
+        "Al-Bidayah wan-Nihayah - Creation of the Universe & Angels\n\nAllah Almighty created the Throne, the Chair, the Earth, the Heavens, and the Angels by His divine command. Chronicles of the world prior to human existence."
+      ]
+    },
+    {
+      "book_id": "bk_006",
+      "title": "Riyad as-Salihin (Gardens of the Righteous)",
+      "author": "Imam Abu Zakariya Yahya An-Nawawi",
+      "publisher": "Dar-us-Salam",
+      "genre": "Hadith & Sunnah",
+      "price": 1950,
+      "cost_price": 1250,
+      "stock_quantity": 18,
+      "isbn": "978-9694160121",
+      "cover_image_url": "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=800&q=80",
+      "condition": "New",
+      "language": "English",
+      "binding": "Hardcover",
+      "pages": 720,
+      "rating": 4.88,
+      "featured": false,
+      "bestseller": true,
+      "description": "Gardens of the Righteous: A curated collection of Qur'anic verses and Hadith covering morality, worship, character, etiquette, and daily life.",
+      "sample_pages": [
+        "Chapter on Sincerity & Pure Intention\n\nAllah Almighty says: 'And they were not commanded except to worship Allah, being sincere to Him in religion.'"
+      ]
+    },
+    {
+      "book_id": "bk_007",
+      "title": "Kashf al-Mahjub (Unveiling the Veiled)",
+      "author": "Hazrat Ali bin Usman Hujwiri (Data Ganj Bakhsh)",
+      "publisher": "Zavia Publishers Lahore",
+      "genre": "Tasawwuf & Ethics",
+      "price": 1350,
+      "cost_price": 850,
+      "stock_quantity": 14,
+      "isbn": "978-9693500331",
+      "cover_image_url": "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=800&q=80",
+      "condition": "New",
+      "language": "English",
+      "binding": "Paperback",
+      "pages": 480,
+      "rating": 4.92,
+      "featured": false,
+      "bestseller": false,
+      "description": "The earliest classical treatise on Islamic spirituality and Sufism translated into English. Unveiling the veiled mysteries of spiritual purification and divine devotion.",
+      "sample_pages": [
+        "Kashf al-Mahjub - Chapter on Sufism\n\nSufism is the purification of the inner self and absolute adherence to the Sunnah of the Prophet Muhammad (PBUH). A true Sufi is one whose heart is cleansed of worldly vanity."
+      ]
+    },
+    {
+      "book_id": "bk_008",
+      "title": "Bahishti Zewar (Heavenly Ornaments - Complete 10 Parts)",
+      "author": "Maulana Ashraf Ali Thanvi",
+      "publisher": "Islami Kutub Khana",
+      "genre": "Fiqh & Islamic Law",
+      "price": 1850,
+      "cost_price": 1200,
+      "stock_quantity": 22,
+      "isbn": "978-9694260999",
+      "cover_image_url": "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=800&q=80",
+      "condition": "New",
+      "language": "English",
+      "binding": "Hardcover Deluxe",
+      "pages": 960,
+      "rating": 4.95,
+      "featured": true,
+      "bestseller": true,
+      "description": "Comprehensive handbook of Hanafi Islamic jurisprudence, daily rulings, purification, prayers, marriage, ethics, and household governance.",
+      "sample_pages": [
+        "Bahishti Zewar - Part 1: Rulings on Purification & Prayer\n\nObligations of Ablution (Wudu): There are four obligatory acts in Wudu: washing the face, washing both arms up to the elbows, wiping a quarter of the head, and washing both feet up to the ankles."
+      ]
+    },
+    {
+      "book_id": "bk_009",
+      "title": "Qisas al-Anbiya (Stories of the Prophets)",
+      "author": "Imam Hafiz Ibn Kathir",
+      "publisher": "Darussalam",
+      "genre": "Tafseer & Quran",
+      "price": 1750,
+      "cost_price": 1100,
+      "stock_quantity": 4,
+      "isbn": "978-9694260330",
+      "cover_image_url": "https://images.unsplash.com/photo-1474939557533-8968472506e0?auto=format&fit=crop&w=800&q=80",
+      "condition": "New",
+      "language": "English",
+      "binding": "Hardcover",
+      "pages": 620,
+      "rating": 4.9,
+      "featured": false,
+      "bestseller": true,
+      "description": "Authentic stories of the Prophets of Allah from Adam (A.S) to Isa (A.S) drawn strictly from the Holy Quran and authentic Hadith narrations.",
+      "sample_pages": [
+        "The Story of Prophet Adam (A.S)\n\nWhen Allah Almighty declared to the angels: 'Indeed, I am going to place a vicegerent on earth...' Creation of Adam from clay and the divine command to prostrate."
+      ]
+    },
+    {
+      "book_id": "bk_010",
+      "title": "Ma'ariful Quran (Qur'anic Commentary - 8 Volumes Complete)",
+      "author": "Mufti Muhammad Shafi",
+      "publisher": "Idara-e-Ma'arif Karachi",
+      "genre": "Tafseer & Quran",
+      "price": 8900,
+      "cost_price": 6000,
+      "stock_quantity": 10,
+      "isbn": "978-9694260777",
+      "cover_image_url": "/assets/islamic_history_book_1788429558297.png",
+      "condition": "New",
+      "language": "English",
+      "binding": "Hardcover 8-Volume Complete Set",
+      "pages": 4200,
+      "rating": 5,
+      "featured": true,
+      "bestseller": true,
+      "description": "The world-renowned 8-volume commentary of the Holy Quran combining scholarly depth with simple, accessible explanation for contemporary issues.",
+      "sample_pages": [
+        "Ma'ariful Quran - Volume 1: Commentary and wisdoms from Surah Al-Baqarah."
+      ]
+    }
+  ],
+  "orders": [
+    {
+      "order_id": "IBN-2026-1001",
+      "user_id": "usr_001",
+      "items": [
+        {
+          "book_id": "bk_001",
+          "title": "Seerat-un-Nabi (Biography of Prophet Muhammad PBUH - 7 Volumes)",
+          "quantity": 1,
+          "price": 3850
+        }
+      ],
+      "subtotal": 3850,
+      "shipping_fee": 0,
+      "total_amount": 3850,
+      "payment_method": "COD",
+      "payment_receipt_url": null,
+      "payment_status": "Verified",
+      "order_status": "Delivered",
+      "shipping_address": {
+        "full_name": "Muhammad Ali",
+        "phone": "+92 3241453947",
+        "address": "House 42, Street 5, F-7/2",
+        "city": "Islamabad",
+        "postal_code": "44000"
+      },
+      "courier_name": "Pakistan Post",
+      "courier_tracking_id": "TRX-9847120",
+      "created_at": "2026-09-01T10:30:00Z"
+    },
+    {
+      "order_id": "IBN-2026-1002",
+      "user_id": "usr_001",
+      "items": [
+        {
+          "book_id": "bk_004",
+          "title": "Ar-Raheeq Al-Makhtum (The Sealed Nectar)",
+          "quantity": 1,
+          "price": 1650
+        }
+      ],
+      "subtotal": 1650,
+      "shipping_fee": 200,
+      "total_amount": 1850,
+      "payment_method": "EasyPaisa",
+      "payment_receipt_url": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80",
+      "payment_status": "Verified",
+      "order_status": "Processing",
+      "shipping_address": {
+        "full_name": "Usman Tariq",
+        "phone": "0344-3418044",
+        "address": "Flat B-4, Gulberg III",
+        "city": "Lahore",
+        "postal_code": "54600"
+      },
+      "courier_name": "Pakistan Post",
+      "courier_tracking_id": null,
+      "created_at": "2026-09-03T09:15:00Z"
+    }
+  ],
+  "reviews": [
+    {
+      "review_id": "rev_001",
+      "book_id": "bk_001",
+      "user_id": "usr_001",
+      "user_name": "Qari Abdul Rahman",
+      "rating": 5,
+      "comment": "SubhanAllah, magnificent authentic printing of Seerat-un-Nabi by Ibn E Abbas! EasyPaisa payment was smooth.",
+      "created_at": "2026-09-02T14:20:00Z"
+    }
+  ]
+}

@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Mobile Viewport & Touch Reset -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Kitab Cart | Authentic Islamic Books Store</title>
+  <meta name="description" content="Authentic printed Islamic books including Tafseer, Quran, Hadith, Seerat-un-Nabi, Islamic History, Fiqh, and Tasawwuf delivered across Pakistan via Pakistan Post Cash on Delivery.">
+  
+  <!-- Premium Stylesheets -->
+  <link rel="stylesheet" href="/src/index.css">
+  <link rel="stylesheet" href="/index.css">
+
+  <!-- Ultra-Fast Cloudflare CDNs for Mobile 4G Reliability in Pakistan -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js" crossorigin></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.6/babel.min.js" crossorigin></script>
+
+  <style>
+    :root {
+      --primary-navy: #0b132b;
+      --secondary-navy: #1c2541;
+      --emerald-dark: #064e3b;
+      --emerald-primary: #047857;
+      --emerald-light: #10b981;
+      --cream-bg: #fdfbf7;
+      --parchment-card: #ffffff;
+      --parchment-border: #e2e8f0;
+      --gold-accent: #d97706;
+      --gold-light: #fef3c7;
+      --text-dark: #0f172a;
+      --text-muted: #64748b;
+      --text-light: #f8fafc;
+      --danger-red: #dc2626;
+      --success-green: #16a34a;
+      --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 4px 14px rgba(15, 23, 42, 0.08);
+      --shadow-lg: 0 12px 30px rgba(15, 23, 42, 0.12);
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+      --transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+      --font-serif: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: var(--font-sans); background-color: var(--cream-bg); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; }
+    h1, h2, h3, h4, .brand-font { font-family: var(--font-serif); }
+
+    .announcement-bar {
+      background: linear-gradient(90deg, var(--emerald-dark), var(--primary-navy));
+      color: #f1f5f9; padding: 9px 20px; font-size: 0.85rem; font-weight: 500;
+      display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .announcement-bar .badge {
+      background: var(--gold-accent); color: #fff; font-size: 0.72rem; font-weight: 700;
+      padding: 2px 9px; border-radius: var(--radius-full); text-transform: uppercase; margin-right: 8px;
+    }
+
+    .main-header {
+      position: sticky; top: 0; z-index: 100; background: rgba(253, 251, 247, 0.97);
+      backdrop-filter: blur(12px); border-bottom: 1px solid var(--parchment-border); box-shadow: var(--shadow-sm);
+    }
+    .header-container {
+      max-width: 1280px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px;
+    }
+    .brand-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--emerald-dark); }
+    .brand-logo-img {
+      height: 48px; width: 48px; border-radius: var(--radius-md); object-fit: cover;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.15); border: 1.5px solid var(--gold-accent);
+    }
+    .brand-title { font-size: 1.55rem; font-weight: 700; color: var(--primary-navy); line-height: 1.1; font-family: var(--font-serif); letter-spacing: -0.3px; }
+    .brand-subtitle { font-size: 0.75rem; color: var(--emerald-primary); font-weight: 600; }
+
+    .search-container { flex: 1; max-width: 540px; position: relative; }
+    .search-input-wrapper {
+      display: flex; align-items: center; background: #fff; border: 1.5px solid var(--parchment-border);
+      border-radius: var(--radius-full); padding: 8px 18px; transition: var(--transition);
+    }
+    .search-input-wrapper:focus-within { border-color: var(--emerald-primary); box-shadow: 0 0 0 4px rgba(4, 120, 87, 0.1); }
+    .search-input { border: none; outline: none; width: 100%; padding-left: 8px; font-size: 0.92rem; color: var(--text-dark); background: transparent; }
+    .search-dropdown {
+      position: absolute; top: 115%; left: 0; right: 0; background: #fff; border-radius: var(--radius-md);
+      border: 1px solid var(--parchment-border); box-shadow: var(--shadow-lg); max-height: 380px; overflow-y: auto; z-index: 200;
+    }
+    .search-item { display: flex; align-items: center; gap: 12px; padding: 10px 16px; border-bottom: 1px solid #f1f5f9; cursor: pointer; }
+    .search-item:hover { background: #f8fafc; }
+    .search-item img { width: 40px; height: 52px; object-fit: cover; border-radius: 4px; }
+
+    .nav-categories { background: var(--primary-navy); color: #fff; border-bottom: 2px solid var(--gold-accent); }
+    .nav-container { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; gap: 8px; padding: 0 24px; overflow-x: auto; }
+    .nav-link {
+      padding: 13px 20px; color: #cbd5e1; font-size: 0.9rem; font-weight: 600; text-decoration: none;
+      white-space: nowrap; cursor: pointer; border-bottom: 2px solid transparent; transition: var(--transition);
+      letter-spacing: 0.2px;
+    }
+    .nav-link:hover, .nav-link.active { color: #fff; background: rgba(255, 255, 255, 0.08); border-bottom-color: var(--gold-accent); }
+
+    .header-actions { display: flex; align-items: center; gap: 12px; }
+    .icon-btn {
+      position: relative; background: #f1f5f9; border: none;
+      padding: 10px 12px; border-radius: var(--radius-full); color: var(--text-dark); cursor: pointer;
+      display: flex; align-items: center; justify-content: center; transition: var(--transition);
+    }
+    .icon-btn:hover { background: var(--emerald-dark); color: #fff; }
+    .badge-count {
+      position: absolute; top: -4px; right: -4px; background: var(--gold-accent); color: #fff;
+      font-size: 0.72rem; font-weight: 700; width: 20px; height: 20px; border-radius: var(--radius-full);
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .hero-slider { max-width: 1280px; margin: 24px auto; padding: 0 24px; }
+    .hero-banner {
+      background: linear-gradient(135deg, var(--primary-navy) 0%, var(--emerald-dark) 100%);
+      border-radius: var(--radius-lg); color: #fff; padding: 48px 40px; display: grid;
+      grid-template-columns: 1.2fr 0.8fr; align-items: center; gap: 30px; box-shadow: var(--shadow-lg);
+    }
+    .hero-content h2 { font-size: 2.2rem; line-height: 1.25; margin-bottom: 12px; color: #fff; font-family: var(--font-serif); }
+    .hero-content p { font-size: 1.05rem; color: #cbd5e1; margin-bottom: 24px; max-width: 500px; }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--emerald-primary), var(--emerald-dark)); color: #fff;
+      border: none; padding: 10px 24px; font-size: 0.9rem; font-weight: 600; border-radius: var(--radius-full);
+      cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: var(--transition);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(4, 120, 87, 0.4); }
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold-accent), #b45309); color: #fff; border: none;
+      padding: 10px 24px; font-size: 0.9rem; font-weight: 600; border-radius: var(--radius-full);
+      cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: var(--transition);
+    }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(217, 119, 6, 0.4); }
+    .btn-outline {
+      background: #f8fafc; color: var(--text-dark); border: none;
+      padding: 8px 18px; font-size: 0.85rem; font-weight: 600; border-radius: var(--radius-full);
+      cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: var(--transition);
+    }
+    .btn-outline:hover { background: #e2e8f0; }
+
+    .section-container { max-width: 1280px; margin: 40px auto; padding: 0 24px; }
+    .section-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 24px; border-bottom: 2px solid var(--parchment-border); padding-bottom: 12px; }
+    .section-title { font-size: 1.8rem; color: var(--primary-navy); display: flex; align-items: center; gap: 10px; font-family: var(--font-serif); }
+    .section-title::before { content: ''; display: inline-block; width: 4px; height: 24px; background: var(--emerald-primary); border-radius: 2px; }
+    
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 24px; }
+    .product-card {
+      background: var(--parchment-card); border: 1px solid var(--parchment-border); border-radius: var(--radius-md);
+      padding: 16px; display: flex; flex-direction: column; justify-content: space-between; transition: var(--transition);
+      position: relative; overflow: hidden; box-shadow: var(--shadow-sm);
+    }
+    .product-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--emerald-primary); }
+    
+    .card-badge-container { position: absolute; top: 12px; left: 12px; display: flex; flex-direction: column; gap: 6px; z-index: 2; }
+    .badge-discount { background: var(--danger-red); color: #fff; font-size: 0.72rem; font-weight: 700; padding: 3px 8px; border-radius: var(--radius-sm); }
+    .badge-stock { font-size: 0.7rem; font-weight: 700; padding: 3px 8px; border-radius: var(--radius-sm); }
+    .badge-stock.in-stock { background: #dcfce7; color: #15803d; }
+    .badge-stock.out-stock { background: #fee2e2; color: #b91c1c; }
+
+    .cover-wrapper {
+      height: 240px; width: 100%; display: flex; align-items: center; justify-content: center;
+      margin-bottom: 14px; background: #fff; border-radius: var(--radius-sm); padding: 8px;
+    }
+    .cover-wrapper img { max-height: 100%; max-width: 100%; object-fit: contain; transition: transform 0.4s ease; }
+    .product-card:hover .cover-wrapper img { transform: scale(1.06); }
+
+    .book-genre { font-size: 0.75rem; color: var(--emerald-primary); font-weight: 600; text-transform: uppercase; margin-bottom: 4px; }
+    .book-title { font-size: 1.1rem; font-weight: 700; color: var(--primary-navy); line-height: 1.3; margin-bottom: 4px; font-family: var(--font-serif); }
+    .book-author { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px; }
+
+    .price-row { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 10px; border-top: 1px dashed var(--parchment-border); }
+    .price-pkr { font-size: 1.15rem; font-weight: 700; color: var(--emerald-dark); }
+    .price-pkr span { font-size: 0.78rem; color: var(--text-muted); }
+
+    .btn-add-cart {
+      width: 100%; margin-top: 12px; background: var(--primary-navy); color: #fff; border: none;
+      padding: 10px; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.88rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 6px; transition: var(--transition);
+    }
+    .btn-add-cart:hover:not(:disabled) { background: var(--emerald-dark); }
+
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(4px);
+      z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 20px;
+    }
+    .modal-card {
+      background: #fff; border-radius: var(--radius-lg); max-width: 850px; width: 100%; max-height: 90vh;
+      overflow-y: auto; box-shadow: var(--shadow-lg); position: relative; padding: 28px;
+    }
+    .close-btn {
+      position: absolute; top: 16px; right: 16px; background: #f1f5f9; border: none;
+      border-radius: var(--radius-full); width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; color: var(--text-dark); font-weight: bold;
+    }
+    .close-btn:hover { background: var(--danger-red); color: #fff; }
+
+    .cart-drawer-overlay { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.6); z-index: 1000; display: flex; justify-content: flex-end; }
+    .cart-drawer { background: var(--cream-bg); width: 100%; max-width: 440px; height: 100%; display: flex; flex-direction: column; box-shadow: -5px 0 25px rgba(0,0,0,0.2); }
+    .cart-header { padding: 20px; background: var(--primary-navy); color: #fff; display: flex; align-items: center; justify-content: space-between; }
+    .cart-body { flex: 1; overflow-y: auto; padding: 20px; }
+    .cart-item { display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--parchment-border); }
+    .cart-item img { width: 55px; height: 75px; object-fit: cover; border-radius: var(--radius-sm); }
+    .cart-footer { padding: 20px; background: #fff; border-top: 1px solid var(--parchment-border); }
+
+    .easypaisa-official-img {
+      height: 22px; width: auto; object-fit: contain; vertical-align: middle;
+      border-radius: 4px; display: inline-block;
+    }
+
+    .whatsapp-float-btn {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      z-index: 999;
+      background: #25D366;
+      color: #ffffff;
+      padding: 11px 20px;
+      border-radius: 9999px;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.88rem;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .whatsapp-float-btn:hover {
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.6);
+      background: #20ba5a;
+      color: #ffffff;
+    }
+
+    /* RESPONSIVE DESIGN SYSTEM - LAPTOP, TABLET & MOBILE VIEW */
+    @media (max-width: 1024px) {
+      .header-container { gap: 14px; padding: 12px 18px; }
+      .hero-banner { grid-template-columns: 1fr; padding: 36px 28px; text-align: center; }
+      .hero-content h2 { font-size: 1.8rem; }
+      .product-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 18px; }
+      .modal-card { padding: 22px; max-width: 94%; }
+    }
+
+    @media (max-width: 768px) {
+      .announcement-bar { flex-direction: column; gap: 6px; text-align: center; padding: 8px 12px; font-size: 0.78rem; }
+      .announcement-bar > div { flex-wrap: wrap; justify-content: center; gap: 8px !important; }
+      .header-container { flex-direction: column; align-items: stretch; padding: 10px 14px; gap: 10px; }
+      .brand-logo { justify-content: flex-start; }
+      .brand-title { font-size: 1.35rem; }
+      .brand-subtitle { font-size: 0.7rem; }
+      .brand-logo-img { height: 42px; width: 42px; }
+      .header-actions { width: 100%; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+      .header-actions .btn-outline { flex: 1; justify-content: center; padding: 8px 12px; font-size: 0.8rem; text-align: center; min-width: 130px; }
+      .icon-btn { padding: 8px 12px; }
+      .search-container { width: 100%; max-width: 100%; }
+      .search-input-wrapper { padding: 6px 14px; }
+      .nav-container { padding: 0 12px; gap: 4px; }
+      .nav-link { padding: 10px 14px; font-size: 0.82rem; }
+      .hero-slider { margin: 14px auto; padding: 0 12px; }
+      .hero-banner { padding: 26px 18px; border-radius: var(--radius-md); text-align: center; }
+      .hero-content h2 { font-size: 1.45rem; line-height: 1.3; margin-bottom: 10px; }
+      .hero-content p { font-size: 0.88rem; margin-bottom: 18px; }
+      .section-container { margin: 24px auto; padding: 0 12px; }
+      .section-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .section-title { font-size: 1.35rem; }
+      .product-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .product-card { padding: 12px; border-radius: var(--radius-md); }
+      .cover-wrapper { height: 165px; padding: 4px; }
+      .book-title { font-size: 0.9rem; line-height: 1.25; }
+      .book-author { font-size: 0.76rem; margin-bottom: 6px; }
+      .book-genre { font-size: 0.68rem; }
+      .price-pkr { font-size: 0.98rem; }
+      .btn-add-cart { padding: 9px 8px; font-size: 0.78rem; margin-top: 8px; }
+      .modal-card { padding: 18px; border-radius: var(--radius-md); max-height: 94vh; width: 96%; margin: 8px; }
+      .cart-drawer { max-width: 100%; width: 100%; }
+      .whatsapp-float-btn { bottom: 16px; left: 16px; padding: 9px 16px; font-size: 0.8rem; border-radius: 9999px; }
+    }
+
+    @media (max-width: 480px) {
+      .announcement-bar { font-size: 0.74rem; }
+      .brand-title { font-size: 1.25rem; }
+      .product-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .product-card { padding: 10px; }
+      .cover-wrapper { height: 145px; }
+      .book-title { font-size: 0.84rem; line-height: 1.2; }
+      .price-pkr { font-size: 0.92rem; }
+      .btn-add-cart { padding: 8px 4px; font-size: 0.75rem; }
+      .whatsapp-float-btn { bottom: 12px; left: 12px; padding: 8px 12px; font-size: 0.75rem; }
+    }
+  </style>
+</head>
+<body style="width: 100%; max-width: 100vw; overflow-x: hidden; margin: 0; padding: 0;">
+  <div id="root" style="width: 100%; max-width: 100vw; overflow-x: hidden;"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect, useContext, createContext, useRef } = React;
+
+    const STORE_CONFIG = {
+      name: "Kitab Cart",
+      nameSubtitle: "Authentic Islamic Books Store",
+      tagline: "Nationwide Pakistan Post Cash on Delivery | 100% Authentic Islamic Books",
+      helpline: "+92 3241453947",
+      whatsapp: "03241453947",
+      whatsappUrl: "https://wa.me/923241453947",
+      email: "kitabcart85@gmail.com",
+      courier: "Pakistan Post",
+      currency: "PKR",
+      freeShippingThreshold: 2000,
+      flatShippingFee: 200,
+      paymentMethods: {
+        cod: true,
+        easypaisa: {
+          number: "03443418044",
+          accountTitle: "Kitab Cart (EasyPaisa Wallet)"
+        }
+      },
+      cities: [
+        "Karachi", "Lahore", "Islamabad", "Rawalpindi", "Peshawar", "Quetta",
+        "Multan", "Faisalabad", "Dadu", "Hyderabad", "Gujranwala", "Sialkot",
+        "Bahawalpur", "Sukkur", "Larkana", "Abbottabad", "Mardan", "Gilgit"
+      ],
+      categories: [
+        "All Islamic",
+        "Tafseer & Quran",
+        "Hadith & Sunnah",
+        "Seerat-un-Nabi & Sahaba",
+        "Islamic History",
+        "Fiqh & Islamic Law",
+        "Tasawwuf & Ethics"
+      ]
+    };
+
+    const StoreContext = createContext();
+
+    const StoreProvider = ({ children }) => {
+      const [books, setBooks] = useState([]);
+      const [loadingBooks, setLoadingBooks] = useState(true);
+      const [cart, setCart] = useState([]);
+      const [activeCategory, setActiveCategory] = useState('All Islamic');
+      const [selectedBook, setSelectedBook] = useState(null);
+      const [sampleBook, setSampleBook] = useState(null);
+      const [isCartOpen, setIsCartOpen] = useState(false);
+      const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
+      const [isTrackerOpen, setIsTrackerOpen] = useState(false);
+      const [toasts, setToasts] = useState([]);
+      const [recentOrder, setRecentOrder] = useState(null);
+
+      const [settings, setSettings] = useState({
+        announcementBadge: "OFFER",
+        announcementText: "📦 Pakistan Post Delivery Nationwide | FREE Shipping over PKR 2,000",
+        helpline: "+92 3241453947",
+        whatsapp: "03241453947",
+        email: "kitabcart85@gmail.com",
+        easypaisaNumber: "03443418044",
+        easypaisaTitle: "Kitab Cart (EasyPaisa Wallet)"
+      });
+
+      const fetchSettings = async () => {
+        try {
+          const res = await fetch('/api/settings');
+          const data = await res.json();
+          if (data.success && data.settings) {
+            setSettings(data.settings);
+          }
+        } catch (err) { console.error(err); }
+      };
+
+      const fetchBooks = async () => {
+        try {
+          setLoadingBooks(true);
+          const res = await fetch('/api/books');
+          const data = await res.json();
+          if (data.success) setBooks(data.books);
+        } catch (err) {
+          console.error(err);
+        } finally {
+          setLoadingBooks(false);
+        }
+      };
+
+      useEffect(() => {
+        fetchBooks();
+        fetchSettings();
+      }, []);
+
+      const addToast = (message, type = 'success') => {
+        const id = Date.now();
+        setToasts(prev => [...prev, { id, message, type }]);
+        setTimeout(() => {
+          setToasts(prev => prev.filter(t => t.id !== id));
+        }, 4000);
+      };
+
+      const addToCart = (book, quantity = 1) => {
+        if (book.stock_quantity <= 0) {
+          addToast(`"${book.title}" is out of stock!`, 'error');
+          return;
+        }
+
+        setCart(prev => {
+          const existing = prev.find(item => item.book_id === book.book_id);
+          if (existing) {
+            const newQty = existing.quantity + quantity;
+            if (newQty > book.stock_quantity) {
+              addToast(`Only ${book.stock_quantity} available in stock`, 'warning');
+              return prev;
+            }
+            addToast(`Updated quantity of "${book.title}" in cart`);
+            return prev.map(item => item.book_id === book.book_id ? { ...item, quantity: newQty } : item);
+          }
+          addToast(`Added "${book.title}" to cart!`);
+          return [...prev, { ...book, quantity }];
+        });
+      };
+
+      const updateCartQuantity = (bookId, newQty) => {
+        const book = books.find(b => b.book_id === bookId);
+        if (book && newQty > book.stock_quantity) {
+          addToast(`Cannot exceed available stock (${book.stock_quantity})`, 'warning');
+          return;
+        }
+        if (newQty <= 0) {
+          removeFromCart(bookId);
+          return;
+        }
+        setCart(prev => prev.map(item => item.book_id === bookId ? { ...item, quantity: newQty } : item));
+      };
+
+      const removeFromCart = (bookId) => {
+        setCart(prev => prev.filter(item => item.book_id !== bookId));
+        addToast('Item removed from cart', 'info');
+      };
+
+      const clearCart = () => setCart([]);
+
+      const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+      const shippingFee = cart.length === 0 ? 0 : (subtotal >= STORE_CONFIG.freeShippingThreshold ? 0 : STORE_CONFIG.flatShippingFee);
+      const grandTotal = subtotal + shippingFee;
+
+      return (
+        <StoreContext.Provider value={{
+          books, loadingBooks, fetchBooks, cart, addToCart, updateCartQuantity, removeFromCart, clearCart,
+          subtotal, shippingFee, grandTotal, activeCategory, setActiveCategory,
+          selectedBook, setSelectedBook, sampleBook, setSampleBook, isCartOpen, setIsCartOpen,
+          isCheckoutOpen, setIsCheckoutOpen, isTrackerOpen, setIsTrackerOpen,
+          toasts, addToast, recentOrder, setRecentOrder, settings, setSettings, fetchSettings
+        }}>
+          {children}
+        </StoreContext.Provider>
+      );
+    };
+
+    const useStore = () => useContext(StoreContext);
+
+    // Official WhatsApp SVG Icon Component
+    function ProfessionalWhatsAppIcon({ size = 18, color = "#25D366" }) {
+      return (
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={{ verticalAlign: 'middle', marginRight: '5px' }}>
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z" fill={color}/>
+          <path d="M12 2C6.477 2 2 6.477 2 12c0 2.14.674 4.12 1.826 5.744L2.5 21.5l3.864-1.306C7.904 21.288 9.897 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.84 0-3.565-.544-5.01-1.48l-.358-.231-2.296.776.786-2.253-.255-.374C3.896 15.422 3.333 13.766 3.333 12c0-4.779 3.888-8.667 8.667-8.667 4.779 0 8.667 3.888 8.667 8.667 0 4.779-3.888 8.667-8.667 8.667z" fill={color}/>
+        </svg>
+      );
+    }
+
+    function ProfessionalSearchIcon() {
+      return (
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      );
+    }
+
+    function ProfessionalPostIcon({ size = 20, color = "var(--primary-navy)" }) {
+      return (
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ verticalAlign: 'middle' }}>
+          <rect x="1" y="3" width="15" height="13" rx="2"/>
+          <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+          <circle cx="5.5" cy="18.5" r="2.5"/>
+          <circle cx="18.5" cy="18.5" r="2.5"/>
+        </svg>
+      );
+    }
+
+    function ProfessionalPhoneIcon({ size = 15, color = "#000000" }) {
+      return (
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ verticalAlign: 'middle', marginRight: '5px' }}>
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+      );
+    }
+
+    function ProfessionalCartIcon() {
+      return (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+      );
+    }
+
+    function ProfessionalTrackIcon() {
+      return (
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ verticalAlign: 'middle', marginRight: '6px' }}>
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+      );
+    }
+
+    function ProfessionalTruckOutlineIcon({ size = 18, color = "#cbd5e1" }) {
+      return (
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ verticalAlign: 'middle', marginRight: '8px' }}>
+          <rect x="1" y="3" width="15" height="13" rx="2"/>
+          <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+          <circle cx="5.5" cy="18.5" r="2.5"/>
+          <circle cx="18.5" cy="18.5" r="2.5"/>
+        </svg>
+      );
+    }
+
+    function ProfessionalCashOutlineIcon({ size = 18, color = "#cbd5e1" }) {
+      return (
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ verticalAlign: 'middle', marginRight: '8px' }}>
+          <rect x="2" y="6" width="20" height="12" rx="2"/>
+          <circle cx="12" cy="12" r="3"/>
+          <line x1="6" y1="12" x2="6.01" y2="12"/>
+          <line x1="18" y1="12" x2="18.01" y2="12"/>
+        </svg>
+      );
+    }
+
+    function ProfessionalWalletOutlineIcon({ size = 18, color = "#cbd5e1" }) {
+      return (
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ verticalAlign: 'middle', marginRight: '8px' }}>
+          <path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"/>
+          <path d="M4 6v12a2 2 0 0 0 2 2h14v-4"/>
+          <path d="M18 12a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4v-4h-4z"/>
+        </svg>
+      );
+    }
+
+    function ProfessionalMailOutlineIcon({ size = 16, color = "#cbd5e1" }) {
+      return (
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ verticalAlign: 'middle', marginRight: '6px' }}>
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+      );
+    }
+
+    function EasyPaisaLogoImage({ height = "22px" }) {
+      return (
+        <img
+          src="/easypaisa_logo.png"
+          alt="Official EasyPaisa Logo"
+          className="easypaisa-official-img"
+          style={{ height: height }}
+        />
+      );
+    }
+
+    // NAVBAR COMPONENT
+    function Navbar() {
+      const { books, cart, setIsCartOpen, setIsTrackerOpen, activeCategory, setActiveCategory, setSelectedBook, settings } = useStore();
+      const [searchTerm, setSearchTerm] = useState('');
+      const [searchResults, setSearchResults] = useState([]);
+      const [isSearching, setIsSearching] = useState(false);
+
+      const cartItemCount = cart.reduce((count, item) => count + item.quantity, 0);
+
+      useEffect(() => {
+        if (!searchTerm.trim()) {
+          setSearchResults([]);
+          setIsSearching(false);
+          return;
+        }
+        setIsSearching(true);
+        const query = searchTerm.toLowerCase();
+        const matches = books.filter(b => 
+          b.title.toLowerCase().includes(query) ||
+          b.author.toLowerCase().includes(query) ||
+          b.isbn.includes(query)
+        ).slice(0, 6);
+        setSearchResults(matches);
+      }, [searchTerm, books]);
+
+      const whatsappNum = settings.whatsapp || STORE_CONFIG.whatsapp;
+
+      return (
+        <header className="main-header">
+          <div className="announcement-bar">
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <span className="badge">{settings.announcementBadge || 'OFFER'}</span>
+              <span>{settings.announcementText || '📦 Pakistan Post Delivery Nationwide | FREE Shipping over PKR 2,000'}</span>
+            </div>
+            <div style={{ display: 'flex', gap: '16px', fontSize: '0.8rem', alignItems: 'center' }}>
+              <a href={`https://wa.me/92${whatsappNum.replace(/^0/, '')}`} target="_blank" rel="noopener noreferrer" style={{ color: '#ffffff', textDecoration: 'none', fontWeight: 700, display: 'flex', alignItems: 'center' }}>
+                <ProfessionalWhatsAppIcon size={16} color="#ffffff" />
+                WhatsApp: {whatsappNum}
+              </a>
+              <span style={{ display: 'flex', alignItems: 'center' }}>
+                <ProfessionalPhoneIcon color="#ffffff" size={14} />
+                Helpline: {settings.helpline || STORE_CONFIG.helpline}
+              </span>
+            </div>
+          </div>
+
+          <div className="header-container">
+            <a href="#" className="brand-logo" onClick={() => setActiveCategory('All Islamic')}>
+              <img src="/brand_logo.png" alt="Kitab Cart Logo" className="brand-logo-img" />
+              <div>
+                <div className="brand-title">{STORE_CONFIG.name}</div>
+                <div className="brand-subtitle">{STORE_CONFIG.nameSubtitle}</div>
+              </div>
+            </a>
+
+            <div className="search-container">
+              <div className="search-input-wrapper">
+                <ProfessionalSearchIcon />
+                <input
+                  type="text"
+                  className="search-input"
+                  placeholder="Search Islamic books by Title, Author, or ISBN..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  onFocus={() => searchTerm.trim() && setIsSearching(true)}
+                />
+                {searchTerm && <span style={{ cursor: 'pointer' }} onClick={() => setSearchTerm('')}>✕</span>}
+              </div>
+
+              {isSearching && searchResults.length > 0 && (
+                <div className="search-dropdown">
+                  <div style={{ padding: '8px 16px', fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-muted)', borderBottom: '1px solid #f1f5f9' }}>
+                    MATCHING ISLAMIC BOOKS ({searchResults.length})
+                  </div>
+                  {searchResults.map((book) => (
+                    <div
+                      key={book.book_id}
+                      className="search-item"
+                      onClick={() => {
+                        setSelectedBook(book);
+                        setIsSearching(false);
+                        setSearchTerm('');
+                      }}
+                    >
+                      <img src={book.cover_image_url} alt={book.title} />
+                      <div style={{ flex: 1 }}>
+                        <div style={{ fontWeight: 600, fontSize: '0.9rem' }}>{book.title}</div>
+                        <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>by {book.author}</div>
+                      </div>
+                      <div style={{ textAlign: 'right' }}>
+                        <div style={{ fontWeight: 700, color: 'var(--emerald-dark)', fontSize: '0.88rem' }}>PKR {book.price}</div>
+                        <span style={{ fontSize: '0.7rem', color: book.stock_quantity > 0 ? 'var(--emerald-primary)' : 'var(--danger-red)' }}>
+                          {book.stock_quantity > 0 ? `${book.stock_quantity} in stock` : 'Out of Stock'}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <div className="header-actions">
+              <button className="icon-btn" onClick={() => setIsCartOpen(true)} title="View Cart">
+                <ProfessionalCartIcon />
+                {cartItemCount > 0 && <span className="badge-count">{cartItemCount}</span>}
+              </button>
+            </div>
+          </div>
+
+          <nav className="nav-categories">
+            <div className="nav-container">
+              {STORE_CONFIG.categories.map((cat) => (
+                <a
+                  key={cat}
+                  className={`nav-link ${activeCategory === cat ? 'active' : ''}`}
+                  onClick={() => setActiveCategory(cat)}
+                >
+                  {cat}
+                </a>
+              ))}
+            </div>
+          </nav>
+        </header>
+      );
+    }
+
+    // HERO CAROUSEL
+    function HeroCarousel() {
+      const { setActiveCategory, settings } = useStore();
+      const whatsappNum = settings.whatsapp || STORE_CONFIG.whatsapp;
+
+      return (
+        <section className="hero-slider">
+          <div className="hero-banner">
+            <div className="hero-content">
+              <div style={{
+                display: 'inline-block',
+                background: 'var(--gold-accent)',
+                color: '#fff',
+                fontSize: '0.75rem',
+                fontWeight: 700,
+                padding: '4px 12px',
+                borderRadius: 'var(--radius-full)',
+                marginBottom: '14px',
+                letterSpacing: '1px'
+              }}>
+                AUTHENTIC ISLAMIC BOOKS CENTER
+              </div>
+              <h2>Authentic Islamic Books & Quranic Exegesis Center</h2>
+              <p>Authentic printed Quranic Tafseer, Sahih Hadith sets, Seerat-un-Nabi ﷺ, Islamic History, and Fiqh books with Pakistan Post Cash on Delivery.</p>
+              <button
+                className="btn-gold"
+                onClick={() => setActiveCategory('Tafseer & Quran')}
+              >
+                <span>Browse Quran & Tafseer Collection</span> →
+              </button>
+            </div>
+
+            <div style={{ height: '260px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <img
+                src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80"
+                alt="Seerat un Nabi"
+                style={{
+                  maxHeight: '100%',
+                  maxWidth: '100%',
+                  objectFit: 'contain',
+                  borderRadius: 'var(--radius-md)',
+                  boxShadow: '0 12px 30px rgba(0,0,0,0.4)',
+                  transform: 'rotate(-2deg)'
+                }}
+              />
+            </div>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px', marginTop: '20px' }}>
+            <a href={`https://wa.me/92${whatsappNum.replace(/^0/, '')}`} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <div style={{ background: '#fff', padding: '16px', borderRadius: 'var(--radius-md)', border: '1.5px solid #25D366', display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' }}>
+                <div style={{ background: '#dcfce7', padding: '10px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <ProfessionalWhatsAppIcon size={24} color="#25D366" />
+                </div>
+                <div>
+                  <div style={{ fontWeight: 700, fontSize: '0.9rem', color: '#15803d' }}>WhatsApp Contact</div>
+                  <div style={{ fontSize: '0.85rem', color: '#0f172a', fontWeight: 700 }}>{whatsappNum}</div>
+                </div>
+              </div>
+            </a>
+
+            <div style={{ background: '#fff', padding: '16px', borderRadius: 'var(--radius-md)', border: '1px solid var(--parchment-border)', display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <div style={{ background: '#ecfdf5', padding: '10px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <ProfessionalPostIcon size={24} color="var(--emerald-dark)" />
+              </div>
+              <div>
+                <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>Pakistan Post Delivery</div>
+                <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Fast nationwide COD service</div>
+              </div>
+            </div>
+
+            <div style={{ background: '#fff', padding: '16px', borderRadius: 'var(--radius-md)', border: '1px solid var(--parchment-border)', display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <EasyPaisaLogoImage height="22px" />
+              <div>
+                <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>EasyPaisa Transfer</div>
+                <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>{settings.easypaisaNumber || STORE_CONFIG.paymentMethods.easypaisa.number} Accepted</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    // PRODUCT CARD
+    function ProductCard({ book }) {
+      const { addToCart, setSelectedBook, setSampleBook } = useStore();
+      const isOutOfStock = book.stock_quantity <= 0;
+      const originalPrice = Math.round(book.price * 1.25);
+
+      return (
+        <div className="product-card">
+          <div className="card-badge-container">
+            <span className="badge-discount">-20% OFF</span>
+            <span className={`badge-stock ${isOutOfStock ? 'out-stock' : 'in-stock'}`}>
+              {isOutOfStock ? 'Out of Stock' : `In Stock (${book.stock_quantity})`}
+            </span>
+          </div>
+
+          <div className="cover-wrapper" onClick={() => setSelectedBook(book)} style={{ cursor: 'pointer' }}>
+            <img src={book.cover_image_url} alt={book.title} />
+          </div>
+
+          <div className="product-info">
+            <div className="book-genre">{book.genre} • {book.language}</div>
+            <div className="book-title" onClick={() => setSelectedBook(book)} style={{ cursor: 'pointer' }}>
+              {book.title}
+            </div>
+            <div className="book-author">by {book.author}</div>
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '0.8rem', color: 'var(--gold-accent)', marginBottom: '8px' }}>
+              <span>★</span>
+              <span style={{ fontWeight: 600 }}>{book.rating || 5.0}</span>
+              <span style={{ color: 'var(--text-muted)' }}>({book.binding})</span>
+            </div>
+
+            <div className="price-row">
+              <div>
+                <div className="price-pkr">
+                  <span>PKR</span> {book.price.toLocaleString()}
+                </div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textDecoration: 'line-through' }}>
+                  PKR {originalPrice.toLocaleString()}
+                </div>
+              </div>
+              
+              <button
+                className="btn-outline"
+                style={{ padding: '6px 10px', fontSize: '0.75rem' }}
+                onClick={() => setSampleBook(book)}
+                title="Read Sample Excerpt"
+              >
+                📖 Sample
+              </button>
+            </div>
+
+            <button
+              className="btn-add-cart"
+              disabled={isOutOfStock}
+              onClick={() => addToCart(book)}
+            >
+              <span>🛒 {isOutOfStock ? 'Out of Stock' : 'Add to Cart'}</span>
+            </button>
+          </div>
+        </div>
+      );
+    }
+
+    // PRODUCT GRID
+    function ProductGrid() {
+      const { books, activeCategory, setActiveCategory, loadingBooks } = useStore();
+
+      let filteredBooks = books;
+      if (activeCategory !== 'All Islamic') {
+        filteredBooks = filteredBooks.filter(b => b.genre.toLowerCase() === activeCategory.toLowerCase());
+      }
+
+      return (
+        <section className="section-container">
+          <div className="section-header">
+            <div>
+              <h2 className="section-title">
+                {activeCategory === 'All Islamic' ? 'Authentic Islamic Books Catalog' : `${activeCategory} Collection`}
+              </h2>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '4px' }}>
+                {filteredBooks.length} genuine Islamic titles available for Pakistan Post delivery
+              </p>
+            </div>
+          </div>
+
+          {loadingBooks ? (
+            <div style={{ textAlign: 'center', padding: '60px 0', color: 'var(--text-muted)' }}>
+              <div style={{ fontSize: '2rem', marginBottom: '12px' }}>📖</div>
+              <div>Loading Kitab Cart Islamic Books catalog...</div>
+            </div>
+          ) : filteredBooks.length === 0 ? (
+            <div style={{ textAlign: 'center', padding: '60px 0', background: '#fff', borderRadius: 'var(--radius-lg)', border: '1px dashed var(--parchment-border)' }}>
+              <h3>No books match your selected Islamic sub-category</h3>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', margin: '8px 0 16px' }}>Try switching categories.</p>
+              <button className="btn-primary" onClick={() => setActiveCategory('All Islamic')}>
+                Show All Islamic Books
+              </button>
+            </div>
+          ) : (
+            <div className="product-grid">
+              {filteredBooks.map((book) => (
+                <ProductCard key={book.book_id} book={book} />
+              ))}
+            </div>
+          )}
+        </section>
+      );
+    }
+
+    // PRODUCT DETAIL MODAL
+    function ProductDetailModal() {
+      const { selectedBook, setSelectedBook, setSampleBook, addToCart } = useStore();
+      const [reviews, setReviews] = useState([]);
+
+      useEffect(() => {
+        if (selectedBook) {
+          fetch(`/api/reviews/${selectedBook.book_id}`)
+            .then(res => res.json())
+            .then(data => { if (data.success) setReviews(data.reviews); })
+            .catch(err => console.error(err));
+        }
+      }, [selectedBook]);
+
+      if (!selectedBook) return null;
+      const isOutOfStock = selectedBook.stock_quantity <= 0;
+
+      return (
+        <div className="modal-overlay" onClick={() => setSelectedBook(null)}>
+          <div className="modal-card" onClick={(e) => e.stopPropagation()}>
+            <button className="close-btn" onClick={() => setSelectedBook(null)}>✕</button>
+
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.3fr', gap: '30px' }}>
+              <div>
+                <div style={{ background: '#fff', border: '1px solid var(--parchment-border)', borderRadius: 'var(--radius-md)', padding: '16px', textAlign: 'center' }}>
+                  <img src={selectedBook.cover_image_url} alt={selectedBook.title} style={{ maxHeight: '340px', maxWidth: '100%', objectFit: 'contain' }} />
+                </div>
+                <button
+                  className="btn-gold"
+                  style={{ width: '100%', justifyContent: 'center', marginTop: '16px' }}
+                  onClick={() => setSampleBook(selectedBook)}
+                >
+                  📖 Read Sample Excerpt
+                </button>
+              </div>
+
+              <div>
+                <div style={{ fontSize: '0.8rem', color: 'var(--emerald-primary)', fontWeight: 700, textTransform: 'uppercase' }}>
+                  {selectedBook.genre} • {selectedBook.language}
+                </div>
+                <h2 style={{ fontSize: '1.8rem', color: 'var(--primary-navy)', margin: '4px 0' }}>{selectedBook.title}</h2>
+                <div style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '12px' }}>
+                  Author: <strong>{selectedBook.author}</strong> | Publisher: <strong>{selectedBook.publisher}</strong>
+                </div>
+
+                <div style={{ background: 'var(--parchment-card)', border: '1px solid var(--parchment-border)', padding: '14px 20px', borderRadius: 'var(--radius-md)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
+                  <div>
+                    <div style={{ fontSize: '1.6rem', fontWeight: 700, color: 'var(--emerald-dark)' }}>
+                      <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>PKR</span> {selectedBook.price.toLocaleString()}
+                    </div>
+                  </div>
+                  <button className="btn-primary" disabled={isOutOfStock} onClick={() => { addToCart(selectedBook); setSelectedBook(null); }}>
+                    🛒 {isOutOfStock ? 'Out of Stock' : 'Add to Cart'}
+                  </button>
+                </div>
+
+                <div className="specs-box">
+                  <div className="spec-item"><span className="spec-label">Binding</span><span className="spec-value">{selectedBook.binding}</span></div>
+                  <div className="spec-item"><span className="spec-label">Page Count</span><span className="spec-value">{selectedBook.pages} Pages</span></div>
+                  <div className="spec-item"><span className="spec-label">ISBN-13</span><span className="spec-value">{selectedBook.isbn}</span></div>
+                  <div className="spec-item"><span className="spec-label">Condition</span><span className="spec-value">{selectedBook.condition}</span></div>
+                </div>
+
+                <div style={{ marginTop: '16px' }}>
+                  <p style={{ fontSize: '0.9rem', lineHeight: '1.7' }}>{selectedBook.description}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // SAMPLE READER MODAL
+    function SampleReaderModal() {
+      const { sampleBook, setSampleBook } = useStore();
+      const [currentPage, setCurrentPage] = useState(0);
+
+      if (!sampleBook) return null;
+      const pages = sampleBook.sample_pages || [`Sample excerpt from "${sampleBook.title}"`];
+
+      return (
+        <div className="modal-overlay" onClick={() => setSampleBook(null)}>
+          <div className="modal-card" style={{ maxWidth: '650px' }} onClick={e => e.stopPropagation()}>
+            <button className="close-btn" onClick={() => setSampleBook(null)}>✕</button>
+            <h3>📖 Read Sample Pages: {sampleBook.title}</h3>
+            <div style={{ background: '#fff', border: '1px solid var(--parchment-border)', padding: '24px', borderRadius: '8px', minHeight: '250px', marginTop: '14px' }}>
+              <pre style={{ fontFamily: 'var(--font-sans)', fontSize: '1.05rem', whiteSpace: 'pre-wrap', lineHeight: '1.8' }}>
+                {pages[currentPage]}
+              </pre>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '16px' }}>
+              <button className="btn-outline" disabled={currentPage === 0} onClick={() => setCurrentPage(p => p - 1)}>← Previous</button>
+              <span>Page {currentPage + 1} of {pages.length}</span>
+              <button className="btn-outline" disabled={currentPage === pages.length - 1} onClick={() => setCurrentPage(p => p + 1)}>Next →</button>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // CART DRAWER
+    function CartDrawer() {
+      const { isCartOpen, setIsCartOpen, cart, updateCartQuantity, removeFromCart, subtotal, shippingFee, grandTotal, setIsCheckoutOpen } = useStore();
+      if (!isCartOpen) return null;
+
+      const remaining = Math.max(0, STORE_CONFIG.freeShippingThreshold - subtotal);
+
+      return (
+        <div className="cart-drawer-overlay" onClick={() => setIsCartOpen(false)}>
+          <div className="cart-drawer" onClick={e => e.stopPropagation()}>
+            <div className="cart-header">
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <ProfessionalCartIcon />
+                <h3>Shopping Cart ({cart.length})</h3>
+              </div>
+              <button className="close-btn" onClick={() => setIsCartOpen(false)} style={{ background: 'rgba(255,255,255,0.1)', color: '#fff' }}>✕</button>
+            </div>
+
+            <div style={{ background: '#f8fafc', padding: '12px 20px', borderBottom: '1px solid var(--parchment-border)', fontSize: '0.85rem' }}>
+              📦 Pakistan Post Delivery: {remaining === 0 ? <strong style={{ color: 'var(--emerald-primary)' }}>FREE Shipping unlocked!</strong> : `Add PKR ${remaining.toLocaleString()} more for FREE Delivery`}
+            </div>
+
+            <div className="cart-body">
+              {cart.length === 0 ? (
+                <div style={{ textAlign: 'center', padding: '40px 0', color: 'var(--text-muted)' }}>Cart is empty</div>
+              ) : (
+                cart.map(item => (
+                  <div key={item.book_id} className="cart-item">
+                    <img src={item.cover_image_url} alt={item.title} />
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>{item.title}</div>
+                      <div style={{ color: 'var(--emerald-dark)', fontWeight: 700 }}>PKR {item.price}</div>
+                      <div style={{ display: 'flex', gap: '8px', alignItems: 'center', marginTop: '6px' }}>
+                        <button className="icon-btn" style={{ padding: '2px 8px' }} onClick={() => updateCartQuantity(item.book_id, item.quantity - 1)}>-</button>
+                        <span>{item.quantity}</span>
+                        <button className="icon-btn" style={{ padding: '2px 8px' }} onClick={() => updateCartQuantity(item.book_id, item.quantity + 1)}>+</button>
+                      </div>
+                    </div>
+                    <button style={{ background: 'none', border: 'none', color: 'red', cursor: 'pointer' }} onClick={() => removeFromCart(item.book_id)}>🗑️</button>
+                  </div>
+                ))
+              )}
+            </div>
+
+            {cart.length > 0 && (
+              <div className="cart-footer">
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
+                  <span>Subtotal:</span><strong>PKR {subtotal.toLocaleString()}</strong>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
+                  <span>Pakistan Post Shipping:</span><strong>{shippingFee === 0 ? 'FREE' : `PKR ${shippingFee}`}</strong>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '1.2rem', fontWeight: 700, color: 'var(--emerald-dark)', marginBottom: '16px' }}>
+                  <span>Total PKR:</span><span>PKR {grandTotal.toLocaleString()}</span>
+                </div>
+                <button className="btn-gold" style={{ width: '100%', justifyContent: 'center', padding: '12px' }} onClick={() => { setIsCartOpen(false); setIsCheckoutOpen(true); }}>
+                  Proceed to Checkout →
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      );
+    }
+
+    // CHECKOUT MODAL
+    function CheckoutModal() {
+      const { isCheckoutOpen, setIsCheckoutOpen, cart, clearCart, subtotal, shippingFee, grandTotal, addToast, fetchBooks, settings } = useStore();
+      const [fullName, setFullName] = useState('');
+      const [phone, setPhone] = useState('');
+      const [address, setAddress] = useState('');
+      const [city, setCity] = useState(STORE_CONFIG.cities[0]);
+      const [paymentMethod, setPaymentMethod] = useState('COD');
+      const [receiptFile, setReceiptFile] = useState(null);
+      const [receiptPreview, setReceiptPreview] = useState('');
+      const [completedOrder, setCompletedOrder] = useState(null);
+
+      if (!isCheckoutOpen) return null;
+
+      const handleReceiptChange = (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onloadend = async () => {
+          setReceiptPreview(reader.result);
+          const res = await fetch('/api/upload', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ image: reader.result })
+          });
+          const data = await res.json();
+          if (data.success) {
+            setReceiptFile(data.url);
+            addToast('EasyPaisa payment receipt screenshot attached!');
+          }
+        };
+        reader.readAsDataURL(file);
+      };
+
+      const handleSubmitOrder = async (e) => {
+        e.preventDefault();
+        if (!fullName || !phone || !address || !city) {
+          addToast('Please complete shipping details', 'warning');
+          return;
+        }
+        if (paymentMethod === 'EasyPaisa' && !receiptFile) {
+          addToast('Please upload your EasyPaisa payment receipt screenshot', 'warning');
+          return;
+        }
+
+        const res = await fetch('/api/orders', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            items: cart.map(i => ({ book_id: i.book_id, quantity: i.quantity })),
+            shipping_address: { full_name: fullName, phone, address, city },
+            payment_method: paymentMethod,
+            payment_receipt_url: receiptFile
+          })
+        });
+
+        const data = await res.json();
+        if (data.success) {
+          setCompletedOrder(data.order);
+          clearCart();
+          fetchBooks();
+          addToast(`Order ${data.order.order_id} placed successfully via Pakistan Post!`);
+        } else {
+          addToast(data.message || 'Order failed', 'error');
+        }
+      };
+
+      return (
+        <div className="modal-overlay" onClick={() => !completedOrder && setIsCheckoutOpen(false)}>
+          <div className="modal-card" style={{ maxWidth: '750px' }} onClick={e => e.stopPropagation()}>
+            <button className="close-btn" onClick={() => { setIsCheckoutOpen(false); setCompletedOrder(null); }}>✕</button>
+
+            {completedOrder ? (
+              <div style={{ textAlign: 'center', padding: '20px' }}>
+                <div style={{ fontSize: '3rem', marginBottom: '10px' }}>🎉</div>
+                <h2>Order Placed Successfully</h2>
+                <p>Tracking Code: <strong style={{ color: 'var(--emerald-dark)', fontSize: '1.4rem' }}>{completedOrder.order_id}</strong></p>
+                <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '8px', textAlign: 'left', margin: '20px 0' }}>
+                  <div>Customer: {completedOrder.shipping_address.full_name} ({completedOrder.shipping_address.phone})</div>
+                  <div>Delivery Address: {completedOrder.shipping_address.address}, {completedOrder.shipping_address.city}</div>
+                  <div>Courier: <strong>Pakistan Post (Cash on Delivery / EasyPaisa)</strong></div>
+                  <div>Total: <strong>PKR {completedOrder.total_amount} ({completedOrder.payment_method})</strong></div>
+                </div>
+                <button className="btn-primary" onClick={() => { setIsCheckoutOpen(false); setCompletedOrder(null); }}>Continue Browsing Islamic Books</button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmitOrder}>
+                <h2>Pakistan Post Delivery & Payment</h2>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginTop: '16px' }}>
+                  <div>
+                    <h4>1. Shipping Details</h4>
+                    <input type="text" placeholder="Full Name *" required value={fullName} onChange={e => setFullName(e.target.value)} style={{ width: '100%', padding: '8px', margin: '6px 0' }} />
+                    <input type="text" placeholder="Phone (03241453947) *" required value={phone} onChange={e => setPhone(e.target.value)} style={{ width: '100%', padding: '8px', margin: '6px 0' }} />
+                    <textarea placeholder="Complete Street Address *" required value={address} onChange={e => setAddress(e.target.value)} style={{ width: '100%', padding: '8px', margin: '6px 0' }} />
+                    <select value={city} onChange={e => setCity(e.target.value)} style={{ width: '100%', padding: '8px', margin: '6px 0' }}>
+                      {STORE_CONFIG.cities.map(c => <option key={c} value={c}>{c}</option>)}
+                    </select>
+                  </div>
+
+                  <div>
+                    <h4>2. Payment Method</h4>
+                    <label style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '12px', border: '1px solid #cbd5e1', borderRadius: '8px', margin: '8px 0', cursor: 'pointer', background: paymentMethod === 'COD' ? '#f0fdf4' : '#fff' }}>
+                      <input type="radio" name="pay" checked={paymentMethod === 'COD'} onChange={() => setPaymentMethod('COD')} />
+                      <div>
+                        <strong> Pakistan Post COD (Cash on Delivery)</strong>
+                        <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Pay cash upon book delivery</div>
+                      </div>
+                    </label>
+
+                    <label style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '12px', border: '1px solid #cbd5e1', borderRadius: '8px', margin: '8px 0', cursor: 'pointer', background: paymentMethod === 'EasyPaisa' ? '#f0fdf4' : '#fff' }}>
+                      <input type="radio" name="pay" checked={paymentMethod === 'EasyPaisa'} onChange={() => setPaymentMethod('EasyPaisa')} />
+                      <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                        <div>
+                          <strong>EasyPaisa Transfer</strong>
+                          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Upload receipt screenshot</div>
+                        </div>
+                        <EasyPaisaLogoImage height="22px" />
+                      </div>
+                    </label>
+
+                    {paymentMethod === 'EasyPaisa' && (
+                      <div style={{ background: '#f0fdf4', padding: '14px', border: '1.5px solid #00b900', borderRadius: '8px', fontSize: '0.85rem', margin: '10px 0' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
+                          <EasyPaisaLogoImage height="22px" />
+                          <strong style={{ fontSize: '1.1rem', color: '#008a00' }}>{settings.easypaisaNumber || '03443418044'}</strong>
+                        </div>
+                        <div style={{ color: 'var(--text-dark)', marginBottom: '8px' }}>Account Title: <strong>{settings.easypaisaTitle || STORE_CONFIG.paymentMethods.easypaisa.accountTitle}</strong></div>
+                        <input type="file" accept="image/*" onChange={handleReceiptChange} style={{ width: '100%', marginTop: '6px' }} />
+                        {receiptPreview && <img src={receiptPreview} alt="Receipt" style={{ maxHeight: '90px', marginTop: '8px', borderRadius: '4px', border: '1px solid #00b900' }} />}
+                      </div>
+                    )}
+
+                    <div style={{ background: '#f8fafc', padding: '10px', marginTop: '12px', fontWeight: 700, color: 'var(--emerald-dark)', borderRadius: '6px' }}>
+                      Total PKR: {grandTotal.toLocaleString()}
+                    </div>
+
+                    <button type="submit" className="btn-gold" style={{ width: '100%', justifyContent: 'center', marginTop: '14px', padding: '12px' }}>
+                      Confirm & Place Order →
+                    </button>
+                  </div>
+                </div>
+              </form>
+            )}
+          </div>
+        </div>
+      );
+    }
+
+    // ORDER TRACKER MODAL
+    function OrderTrackerModal() {
+      const { isTrackerOpen, setIsTrackerOpen } = useStore();
+      const [searchId, setSearchId] = useState('');
+      const [result, setResult] = useState(null);
+
+      if (!isTrackerOpen) return null;
+
+      const handleTrack = async (e) => {
+        e.preventDefault();
+        const res = await fetch(`/api/orders/track/${searchId.trim()}`);
+        const data = await res.json();
+        if (data.success) setResult(data);
+      };
+
+      return (
+        <div className="modal-overlay" onClick={() => setIsTrackerOpen(false)}>
+          <div className="modal-card" style={{ maxWidth: '600px' }} onClick={e => e.stopPropagation()}>
+            <button className="close-btn" onClick={() => setIsTrackerOpen(false)}>✕</button>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
+              <ProfessionalTrackIcon />
+              <h3 style={{ margin: 0 }}>Track Pakistan Post Shipment</h3>
+            </div>
+            <form onSubmit={handleTrack} style={{ display: 'flex', gap: '10px', margin: '16px 0' }}>
+              <input type="text" placeholder="Order ID e.g. KTC-2026-1001" value={searchId} onChange={e => setSearchId(e.target.value)} style={{ flex: 1, padding: '10px', borderRadius: '20px', border: '1px solid #cbd5e1' }} />
+              <button type="submit" className="btn-primary">Track Order</button>
+            </form>
+
+            {result && (
+              <div style={{ background: 'var(--parchment-card)', padding: '16px', borderRadius: '8px' }}>
+                <h4>Order #{result.order.order_id} - {result.order.order_status}</h4>
+                <div>Logistics: <strong>Pakistan Post</strong></div>
+                {result.order.courier_tracking_id && <div>Pakistan Post Registry Ref: {result.order.courier_tracking_id}</div>}
+              </div>
+            )}
+          </div>
+        </div>
+      );
+    }
+
+    function ToastContainer() {
+      const { toasts } = useStore();
+      if (!toasts.length) return null;
+      return (
+        <div style={{ position: 'fixed', bottom: '20px', right: '20px', zIndex: 3000, display: 'flex', flexDirection: 'column', gap: '8px' }}>
+          {toasts.map(t => (
+            <div key={t.id} style={{ background: t.type === 'error' ? '#ef4444' : '#047857', color: '#fff', padding: '10px 16px', borderRadius: '8px', fontSize: '0.88rem' }}>
+              {t.message}
+            </div>
+          ))}
+        </div>
+      );
+    }
+
+    function FloatingWhatsAppButton() {
+      const { settings } = useStore();
+      const whatsappNum = settings.whatsapp || STORE_CONFIG.whatsapp;
+      const cleanNum = whatsappNum.replace(/^0/, '');
+
+      return (
+        <a
+          href={`https://wa.me/92${cleanNum}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="whatsapp-float-btn"
+          title="Chat on WhatsApp"
+        >
+          <ProfessionalWhatsAppIcon size={22} color="#ffffff" />
+          <span>Chat on WhatsApp</span>
+        </a>
+      );
+    }
+
+    function AppContent() {
+      const { settings } = useStore();
+      const whatsappNum = settings.whatsapp || STORE_CONFIG.whatsapp;
+
+      return (
+        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+          <Navbar />
+          <main style={{ flex: 1 }}>
+            <HeroCarousel />
+            <ProductGrid />
+          </main>
+          <ProductDetailModal />
+          <SampleReaderModal />
+          <CartDrawer />
+          <CheckoutModal />
+          <OrderTrackerModal />
+          <ToastContainer />
+          <FloatingWhatsAppButton />
+
+          <footer style={{ background: 'var(--primary-navy)', color: '#fff', padding: '40px 24px 20px', marginTop: '60px', borderTop: '4px solid var(--gold-accent)' }}>
+            <div style={{ maxWidth: '1280px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '30px' }}>
+              <div>
+                <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.4rem' }}>Kitab Cart</h3>
+                <div style={{ color: 'var(--gold-accent)', fontSize: '0.88rem', marginTop: '4px' }}>Center of Authentic Islamic Literature & Exegesis</div>
+              </div>
+
+              <div>
+                <h4 style={{ marginBottom: '12px', fontSize: '1.05rem', borderBottom: '2px solid var(--gold-accent)', display: 'inline-block', paddingBottom: '4px' }}>Logistics & Payments</h4>
+                <div style={{ display: 'flex', alignItems: 'center', margin: '8px 0', fontSize: '0.9rem', color: '#cbd5e1' }}>
+                  <ProfessionalTruckOutlineIcon size={18} color="#cbd5e1" />
+                  <span>Pakistan Post Nationwide Delivery</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', margin: '8px 0', fontSize: '0.9rem', color: '#cbd5e1' }}>
+                  <ProfessionalCashOutlineIcon size={18} color="#cbd5e1" />
+                  <span>Cash on Delivery (COD)</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', margin: '8px 0', fontSize: '0.9rem', color: '#cbd5e1' }}>
+                  <ProfessionalWalletOutlineIcon size={18} color="#cbd5e1" />
+                  <span>EasyPaisa: <strong style={{ color: '#fff', marginLeft: '4px' }}>{settings.easypaisaNumber || '03443418044'}</strong></span>
+                </div>
+              </div>
+
+              <div>
+                <h4 style={{ marginBottom: '12px', fontSize: '1.05rem', borderBottom: '2px solid var(--gold-accent)', display: 'inline-block', paddingBottom: '4px' }}>Support & Contact</h4>
+                <div style={{ display: 'flex', alignItems: 'center', margin: '8px 0' }}>
+                  <ProfessionalWhatsAppIcon size={18} color="#ffffff" />
+                  <a href={`https://wa.me/92${whatsappNum.replace(/^0/, '')}`} target="_blank" rel="noopener noreferrer" style={{ color: '#ffffff', textDecoration: 'none', fontWeight: 700 }}>
+                    WhatsApp: {whatsappNum}
+                  </a>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', margin: '8px 0', color: '#cbd5e1', fontSize: '0.9rem' }}>
+                  <ProfessionalPhoneIcon color="#ffffff" size={16} />
+                  <span>Helpline: <strong style={{ color: '#fff', marginLeft: '4px' }}>{settings.helpline || STORE_CONFIG.helpline}</strong></span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', margin: '8px 0', color: '#cbd5e1', fontSize: '0.9rem' }}>
+                  <ProfessionalMailOutlineIcon size={16} color="#cbd5e1" />
+                  <span>Email: <strong style={{ color: '#fff', marginLeft: '4px' }}>{settings.email || STORE_CONFIG.email}</strong></span>
+                </div>
+              </div>
+            </div>
+
+            <div style={{ textAlign: 'center', marginTop: '30px', paddingTop: '16px', borderTop: '1px solid #334155', fontSize: '0.8rem', color: '#94a3b8' }}>
+              © 2026 Kitab Cart. All rights reserved.
+            </div>
+          </footer>
+        </div>
+      );
+    }
+
+    function App() {
+      return (
+        <StoreProvider>
+          <AppContent />
+        </StoreProvider>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
